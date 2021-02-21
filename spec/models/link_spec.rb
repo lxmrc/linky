@@ -26,6 +26,14 @@ RSpec.describe Link, type: :model do
     end
   end
 
+  context 'destination is not a valid URL' do
+    link = Link.create(destination: 'not a valid URL')
+
+    it 'is not valid' do
+      expect(link).to_not be_valid
+    end
+  end
+
   context 'has just been created' do
     link = Link.create(destination: 'http://example.com')
 
