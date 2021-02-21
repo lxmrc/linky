@@ -19,7 +19,7 @@ class LinksController < ApplicationController
     @link = Link.new(link_params)
 
     if link_params[:title].empty?
-      @link.title = @link.destination
+      @link.title = MetaInspector.new(@link.destination).best_title
     end
 
     if @link.save
