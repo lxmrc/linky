@@ -1,0 +1,13 @@
+<div class="card-body">
+  <%= link_to upvote_path(link), 
+    method: :patch do %>
+    <i class="fas fa-arrow-up"></i>
+  <% end %>
+  <div class="badge badge-primary">
+    <%= link.score %>
+  </div>
+  <%= link_to downvote_path(link), 
+    method: :patch do %>
+    <i class="fas fa-arrow-down"></i>
+  <% end %>
+</div>

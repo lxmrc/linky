@@ -1,10 +1,17 @@
 <div class="row my-2">
   <div class="col-12">
     <div class="card">
-      <div class="card-body">
-        <h5 class="card-title"><%= link.title %></h5>
-        <%= link_to link.destination, link.destination %>
-        <p class="card-text"><%= link.description %></p>
+      <div class="row no-gutters">
+        <div class="col-md-1">
+          <%= render 'votes', link: link %>
+        </div>
+        <div class="col-md-11">
+          <div class="card-body">
+            <h5 class="card-title"><%= link.title %></h5>
+            <%= link_to link.destination, link.destination %>
+            <p class="card-text"><%= link.description %></p>
+          </div>
+        </div>
       </div>
     </div>
   </div>

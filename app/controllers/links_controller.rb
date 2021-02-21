@@ -1,5 +1,5 @@
 class LinksController < ApplicationController
-  before_action :set_link, only: [:show, :edit, :update, :destroy]
+  before_action :set_link, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
 
   def index
     @links = Link.all
@@ -40,6 +40,16 @@ class LinksController < ApplicationController
   def destroy
     @link.destroy
     redirect_to links_url, notice: 'Link was successfully destroyed.'
+  end
+
+  def upvote
+    @link.update_attribute(:score, @link.score + 1)
+    redirect_to links_url
+  end
+
+  def downvote
+    @link.update_attribute(:score, @link.score - 1)
+    redirect_to links_url
   end
 
   private
