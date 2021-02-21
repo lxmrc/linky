@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Destination:</strong>
+  <%= @link.destination %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @link.description %>
+</p>
+
+<p>
+  <strong>Score:</strong>
+  <%= @link.score %>
+</p>
+
+<%= link_to 'Edit', edit_link_path(@link) %> |
+<%= link_to 'Back', links_path %>
