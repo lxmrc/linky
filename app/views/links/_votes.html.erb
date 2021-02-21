@@ -1,13 +1,13 @@
-<div class="card-body">
+<div class="card-body" style="text-align: center;">
   <%= link_to upvote_path(link), 
-    method: :patch do %>
+    method: :patch,
+    remote: true do %>
     <i class="fas fa-arrow-up"></i>
   <% end %>
-  <div class="badge badge-primary">
-    <%= link.score %>
-  </div>
+  <span class="badge badge-primary"><%= link.score %></span>
   <%= link_to downvote_path(link), 
-    method: :patch do %>
+    method: :patch,
+    remote: true do %>
     <i class="fas fa-arrow-down"></i>
   <% end %>
 </div>
