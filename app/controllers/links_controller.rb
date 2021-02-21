@@ -18,6 +18,10 @@ class LinksController < ApplicationController
   def create
     @link = Link.new(link_params)
 
+    if link_params[:title].empty?
+      @link.title = @link.destination
+    end
+
     if @link.save
       redirect_to @link, notice: 'Link was successfully created.'
     else
@@ -44,6 +48,6 @@ class LinksController < ApplicationController
     end
 
     def link_params
-      params.require(:link).permit(:destination, :description)
+      params.require(:link).permit(:destination, :description, :title)
     end
 end

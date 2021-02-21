@@ -2,7 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Link, type: :model do
   context 'destination and description are present' do
-    link = Link.create(destination: 'http://example.com',
+    link = Link.create(title: 'Example.com',
+                       destination: 'http://example.com',
                        description: 'Check this out!')
 
     it 'is valid' do
@@ -11,7 +12,8 @@ RSpec.describe Link, type: :model do
   end
 
   context 'only destination is present' do
-    link = Link.create(destination: 'http://example.com')
+    link = Link.create(title: 'Example.com',
+                       destination: 'http://example.com')
 
     it 'is valid' do
       expect(link).to be_valid

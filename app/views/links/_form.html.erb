@@ -1,4 +1,5 @@
 <%= bootstrap_form_for(@link) do |f| %>
+  <%= f.text_field :title %>
   <%= f.text_field :destination %>
   <%= f.text_area :description %>
   <%= f.submit "Create Link" %>
