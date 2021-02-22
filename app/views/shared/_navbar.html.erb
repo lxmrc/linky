@@ -1,6 +1,9 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <%= link_to 'Linky', links_path, class: 'navbar-brand' %>
   <ul class="navbar-nav">
+    <% if user_signed_in? %>
+      <%= link_to 'Post a link', new_link_path, class: 'btn btn-success' %>
+    <% end %>
   </ul>
   <ul class="nav navbar-nav ml-auto">
     <% if user_signed_in? %>
