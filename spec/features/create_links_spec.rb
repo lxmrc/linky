@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "Create links", type: :feature do
+RSpec.feature "Users can create links", type: :feature do
   let(:user) { FactoryBot.create(:user) }
 
   before do
