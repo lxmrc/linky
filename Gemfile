@@ -12,6 +12,7 @@ gem 'turbolinks', '~> 5'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'bootstrap_form', '~> 4.5'
 gem 'metainspector', '~> 5.2', '>= 5.2.1'
+gem 'devise', '~> 4.7', '>= 4.7.3'
 
 group :development, :test do
   gem 'pry-rails'

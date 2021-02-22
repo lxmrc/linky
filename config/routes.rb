@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   patch '/links/:id/upvote', to: 'links#upvote', as: :upvote
   patch '/links/:id/downvote', to: 'links#downvote', as: :downvote
 

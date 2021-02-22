@@ -1,5 +1,6 @@
 class LinksController < ApplicationController
   before_action :set_link, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy, :upvote, :downvote]
 
   def index
     @links = Link.all
