@@ -1,6 +1,12 @@
 require 'rails_helper'
 
 RSpec.feature "Create links", type: :feature do
+  let(:user) { FactoryBot.create(:user) }
+
+  before do
+    login_as(user)
+  end
+
   scenario "with valid details" do
     visit new_link_path
     
