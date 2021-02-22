@@ -3,5 +3,6 @@ class Link < ApplicationRecord
                           format: { with: URI.regexp }
   validates :title, presence: true
 
-  has_many :votes
+  belongs_to :user
+  has_many :votes, dependent: :destroy
 end

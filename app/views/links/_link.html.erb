@@ -9,14 +9,17 @@
           <div class="card-body">
             <h3 class="card-title link-title"><%= link.title %></h3>
             <%= link_to link.destination, link.destination %>
+            <p>Posted by <%= link.user.email %></p>
             <p class="card-text"><%= link.description %></p>
           </div>
         </div>
       </div>
-      <div class="card-footer text-muted">
-        <%= link_to 'Edit', edit_link_path(link), class: 'btn btn-primary' %>
-        <%= link_to 'Delete', link_path(link), method: :delete, class: 'btn btn-danger' %>
-      </div>
+      <% if link.user == current_user %>
+        <div class="card-footer text-muted">
+          <%= link_to 'Edit', edit_link_path(link), class: 'btn btn-primary' %>
+          <%= link_to 'Delete', link_path(link), method: :delete, class: 'btn btn-danger' %>
+        </div>
+    <% end %>
     </div>
   </div>
 </div>

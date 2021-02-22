@@ -10,14 +10,14 @@ class LinksController < ApplicationController
   end
 
   def new
-    @link = Link.new
+    @link = current_user.links.build
   end
 
   def edit
   end
 
   def create
-    @link = Link.new(link_params)
+    @link = current_user.links.build(link_params)
 
     if link_params[:title].empty?
       @link.title = MetaInspector.new(@link.destination).best_title
