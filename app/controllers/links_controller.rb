@@ -47,16 +47,6 @@ class LinksController < ApplicationController
     redirect_to links_url, notice: 'Link was successfully destroyed.'
   end
 
-  def upvote
-    @link.update_attribute(:score, @link.score + 1)
-    redirect_to links_url
-  end
-
-  def downvote
-    @link.update_attribute(:score, @link.score - 1)
-    redirect_to links_url
-  end
-
   private
     def set_link
       @link = Link.find(params[:id])
