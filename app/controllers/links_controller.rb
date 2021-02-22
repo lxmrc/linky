@@ -21,6 +21,9 @@ class LinksController < ApplicationController
 
     if link_params[:title].empty?
       @link.title = MetaInspector.new(@link.destination).best_title
+    end
+
+    if link_params[:description].empty?
       @link.description = MetaInspector.new(@link.destination).best_description
     end
 
