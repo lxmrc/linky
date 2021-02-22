@@ -35,7 +35,15 @@ class LinksController < ApplicationController
   end
 
   def update
-    if @link.update(link_params)
+    if link_params[:title].empty?
+       title = MetaInspector.new(link_params[:destination]).best_title
+    end
+
+    if link_params[:description].empty?
+      description = MetaInspector.new(link_params[:destination]).best_description
+    end
+
+    if @link.update(link_params.merge(title: title, description: description))
       redirect_to @link, notice: 'Link was successfully updated.'
     else
       render :edit
@@ -48,6 +56,16 @@ class LinksController < ApplicationController
   end
 
   private
+    def fetch_data
+      if link_params[:title].empty?
+        @link.title = MetaInspector.new(@link.destination).best_title
+      end
+
+      if link_params[:description].empty?
+        @link.description = MetaInspector.new(@link.destination).best_description
+      end
+    end
+
     def set_link
       @link = Link.find(params[:id])
     end
